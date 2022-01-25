@@ -1,4 +1,4 @@
-package bitops
+package codetop
 
 func findKthLargest(nums []int, k int) int {
 	n := len(nums)
@@ -7,10 +7,9 @@ func findKthLargest(nums []int, k int) int {
 	return nums[target]
 }
 
-func partition(nums []int, left, right int) int {
+func partition(nums []int, left int, right int) int {
 	pivot := nums[left]
 	index := left
-	// i 是当前遍历元素的索引， index是记录分界点
 	for i := left + 1; i <= right; i++ {
 		if nums[i] < pivot {
 			index++
@@ -21,11 +20,11 @@ func partition(nums []int, left, right int) int {
 	return index
 }
 
-func quickSort(nums []int, left, right int) {
+func quickSort(nums []int, left int, right int) {
 	if left > right {
 		return
 	}
-	partitionIndex := partition(nums, left, right)
-	quickSort(nums, left, partitionIndex-1)
-	quickSort(nums, partitionIndex+1, right)
+	partitions := partition(nums, left, right)
+	quickSort(nums, left, partitions-1)
+	quickSort(nums, partitions+1, right)
 }

@@ -2,6 +2,7 @@ package dp
 
 func longestPalindromeSubseq(s string) int {
 	n := len(s)
+	// f[i][j] 表示 s 的第 i 个字符到第 j 个字符组成的子串中，最长的回文序列长度是多少
 	dp := make([][]int, n)
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {

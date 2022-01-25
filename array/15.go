@@ -4,6 +4,7 @@ import "sort"
 
 // scaling memcache at facebook
 // 极客大学DDD
+// https://leetcode-cn.com/problems/3sum/
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
 	res := make([][]int, 0)

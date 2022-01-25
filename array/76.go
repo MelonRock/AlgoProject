@@ -4,6 +4,8 @@ import (
 	"math"
 )
 
+// https://leetcode-cn.com/problems/minimum-window-substring/
+// 最小覆盖子串
 func minWindow(s string, t string) string {
 	// 保存滑动窗口字符集
 	win := make(map[byte]int)
@@ -43,7 +45,7 @@ func minWindow(s string, t string) string {
 			}
 			c = s[left]
 			left++
-			// 左指针的字符不在需要的字符集
+			// 左指针的字符在需要的字符集
 			if need[c] != 0 {
 				if win[c] == need[c] {
 					match--
