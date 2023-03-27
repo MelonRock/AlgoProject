@@ -6,6 +6,7 @@ func countPrimes(n int) int {
 		if isNotPrime[i] {
 			continue
 		}
+		// 每计算一个数，都要把它的倍数去掉。到了n，数一下留下了几个数。
 		for j := i * i; j < n; j = j + i {
 			isNotPrime[j] = true
 		}

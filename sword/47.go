@@ -1,6 +1,7 @@
 package sword
 
 func maxValue(grid [][]int) int {
+	// dp[i][j]表示从grid[0][0]到grid[i - 1][j - 1]时的最大价值
 	dp := make([][]int, len(grid)+1)
 	for i := 0; i <= len(grid); i++ {
 		dp[i] = make([]int, len(grid[0])+1)

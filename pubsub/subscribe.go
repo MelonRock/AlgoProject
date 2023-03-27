@@ -19,7 +19,7 @@ type Publisher struct {
 	subscribers map[subscriber]topicFunc // 订阅者信息
 }
 
-// 构建一个发布者对象, 可以设置发布超时时间和缓存队列的长度
+// NewPublisher 构建一个发布者对象, 可以设置发布超时时间和缓存队列的长度
 func NewPublisher(publishTimeout time.Duration, buffer int) *Publisher {
 	return &Publisher{
 		buffer:      buffer,
