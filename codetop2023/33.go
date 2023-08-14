@@ -1,23 +1,28 @@
 package codetop2023
 
 func search(nums []int, target int) int {
-	left, right := 0, len(nums)-1
-	for left <= right {
-		mid := left + (right-left)/2
+	// 先根据 nums[mid] 与 nums[lo] 的关系判断 mid 是在左段还是右段，
+	//接下来再判断 target 是在 mid 的左边还是右边，从而来调整左右边界 lo 和 hi。
+	lo, hi := 0, len(nums)-1
+	for lo <= hi {
+		mid := lo + (hi-lo)/2
 		if nums[mid] == target {
 			return mid
 		}
-		if nums[mid] >= nums[left] {
-			if nums[mid] > target && target >= nums[left] {
-				right = mid - 1
+		// mid在左段
+		if nums[mid] >= nums[lo] {
+			// 判断target位置
+			if target >= nums[lo] && target < nums[mid] {
+				hi = mid - 1
 			} else {
-				left = mid + 1
+				lo = mid + 1
 			}
 		} else {
-			if nums[mid] < target && target <= nums[right] {
-				left = mid + 1
+			// mid在右段
+			if target > nums[mid] && target <= nums[hi] {
+				lo = mid + 1
 			} else {
-				right = mid - 1
+				hi = mid - 1
 			}
 		}
 	}

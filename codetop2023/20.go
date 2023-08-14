@@ -6,9 +6,9 @@ func isValid(s string) bool {
 		return false
 	}
 	pairs := map[byte]byte{
+		')': '(',
+		']': '[',
 		'}': '{',
-		'[': ']',
-		'(': ')',
 	}
 	var stack []byte
 	for i := 0; i < n; i++ {

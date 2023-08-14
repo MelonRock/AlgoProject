@@ -9,11 +9,11 @@ func trap(height []int) int {
 	for i := 1; i < len(height)-1; i++ {
 		leftMax, rightMax := 0, 0
 		// 寻找左边最高柱子
-		for l := i - 1; l < i; l-- {
+		for l := i - 1; l >= 0; l-- {
 			leftMax = max(leftMax, height[l])
 		}
 		for r := i + 1; r < len(height); r++ {
-			rightMax = max(rightMax, height[i+1])
+			rightMax = max(rightMax, height[r])
 		}
 
 		minT := min(leftMax, rightMax)

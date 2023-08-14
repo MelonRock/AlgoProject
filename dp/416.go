@@ -10,10 +10,10 @@ func canPartition(nums []int) bool {
 	}
 	sum = sum / 2
 	// dp[i][j] = x 表示，对于前 i 个物品，
-	//当前背包的容量为 j 时，若 x 为 true，则说明可以恰好将背包装满，
-	//若 x 为 false，则说明不能恰好将背包装满。
+	// 当前背包的容量为 j 时，若 x 为 true，则说明可以恰好将背包装满，
+	// 若 x 为 false，则说明不能恰好将背包装满。
 	dp := make([][]bool, len(nums)+1)
-	for i := range dp {
+	for i := 0; i < len(dp); i++ {
 		dp[i] = make([]bool, sum+1)
 		dp[i][0] = true
 	}
